@@ -2,7 +2,7 @@ Summary:	Common SGML catalog and DTD files
 Summary(pl):	Opisane w normie ISO 8879/1986 katalogi i DTD SGMLowe
 Name:		sgml-common
 Version:	0.2
-Release:	5
+Release:	6
 Vendor:		Cygnus Solutions -- UNSUPPORTED
 Source0:	sgml-common.tgz
 #Source1:	install-catalog
