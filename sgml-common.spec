@@ -54,6 +54,7 @@ touch $RPM_BUILD_ROOT/usr/share/sgml/CATALOG
 
 %files
 %defattr(644, root, root, 755)
+%dir /usr/share/sgml
 /usr/share/sgml/ISO*
 /usr/share/sgml/sgml-common.cat
 %attr(755, root, root) /usr/bin/install-catalog
