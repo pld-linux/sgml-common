@@ -16,18 +16,18 @@ Group:		Applications/Publishing/SGML
 Group(pl):	Aplikacje/Publikowanie/SGML
 BuildArch:	noarch
 Provides:	iso-entitles, iso-entities-8879.1986, sgml-catalog
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-sgml-common is a collection of entities and dtds that are useful for
-SGML processing, but shouldn't need to be included in multiple packages.
-It also includes an up-to-date Open Catalog file.
+sgml-common is a collection of entities and dtds that are useful for SGML
+processing, but shouldn't need to be included in multiple packages. It also
+includes an up-to-date Open Catalog file.
 
 %description -l pl
-sgml-common jest zestawem wspólnych dla wiêkszo¶ci aplikacji SGMLa 
-(bo opisanych w normie ISO 8879/1986) encji i DTD.   
-Poza tym zawiera aktualizowany przy dodawaniu nowych pakietów 
-plik CATALOG oraz instalator nowych DTD. 
+sgml-common jest zestawem wspólnych dla wiêkszo¶ci aplikacji SGMLa  (bo
+opisanych w normie ISO 8879/1986) encji i DTD.    Poza tym zawiera
+aktualizowany przy dodawaniu nowych pakietów  plik CATALOG oraz instalator
+nowych DTD.
 
 %prep
 %setup -c -q 
