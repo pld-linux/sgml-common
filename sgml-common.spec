@@ -2,7 +2,7 @@ Summary:	Common SGML catalog and DTD files
 Summary(pl):	Opisane w normie ISO 8879/1986 katalogi i DTD SGMLowe
 Name:		sgml-common
 Version:	0.5
-Release:	7
+Release:	8
 License:	Distibutable
 ##Copyright:	(C) International Organization for Standardization 1986
 URL:		http://www.iso.ch/cate/3524030.html
@@ -36,10 +36,9 @@ instalator nowych DTD.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_bindir}
-install -d $RPM_BUILD_ROOT%{_datadir}/sgml/sgml-iso-entities-8879.1986
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/sgml
-install -d $RPM_BUILD_ROOT%{_mandir}/man8
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man8,%{_sysconfdir}/sgml} \
+	$RPM_BUILD_ROOT%{_datadir}/sgml/{sgml-iso-entities-8879.1986,docbook}
+
 install *.dcl $RPM_BUILD_ROOT%{_datadir}/sgml
 install iso-entities/{*.ent,catalog} $RPM_BUILD_ROOT%{_datadir}/sgml/sgml-iso-entities-8879.1986
 install bin/* $RPM_BUILD_ROOT%{_bindir}/
