@@ -2,12 +2,13 @@ Summary:	Common SGML catalog and DTD files
 Summary(pl):	Opisane w normie ISO 8879/1986 katalogi i DTD SGMLowe
 Name:		sgml-common
 Version:	0.2
-Release:	3
+Release:	4
 Vendor:		Cygnus Solutions -- UNSUPPORTED
 Source0:	sgml-common.tgz
-Source1:	install-catalog
-Source2:	sgml.sh
-Source3:	sgml.csh
+#Source1:	install-catalog
+Source1:	fix-sgml-catalog
+#Source2:	sgml.sh
+#Source3:	sgml.csh
 Source4:	iso-entities.cat
 Source5:	sgml-common.cat
 Copyright:	(C) International Organization for Standardization 1986
@@ -33,26 +34,29 @@ plik CATALOG oraz instalator nowych DTD.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/etc/profile.d
-install -d $RPM_BUILD_ROOT{%{_sbindir},%{_datadir}/sgml/iso-entities-8879.1986}
+#install -d $RPM_BUILD_ROOT/etc/profile.d
+
+install -d $RPM_BUILD_ROOT%{_sbindir}
+install -d $RPM_BUILD_ROOT%{_datadir}/sgml/{iso-entities-8879.1986,catalogs}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sbindir}
 
-install %{SOURCE2} %{SOURCE3} $RPM_BUILD_ROOT/etc/profile.d
+#install %{SOURCE2} %{SOURCE3} $RPM_BUILD_ROOT/etc/profile.d
 
 install sgml-common/* $RPM_BUILD_ROOT%{_datadir}/sgml/iso-entities-8879.1986
 install %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/sgml/iso-entities-8879.1986
-install %{SOURCE5} $RPM_BUILD_ROOT%{_datadir}/sgml
+install %{SOURCE5} $RPM_BUILD_ROOT%{_datadir}/sgml/catalogs
 
 touch $RPM_BUILD_ROOT%{_datadir}/sgml/CATALOG
 
 %post
-%{_sbindir}/install-catalog --install sgml-common --version %{version}-%{release}
+#%{_sbindir}/install-catalog --install sgml-common --version %{version}-%{release}
+%{_sbindir}/fix-sgml-catalog
 
-%preun
-if [ "$1" = "0" ]; then
-	%{_sbindir}/install-catalog --remove sgml-common --version %{version}-%{release}
-fi
+%postun
+#if [ "$1" = "0" ]; then
+#	%{_sbindir}/install-catalog --remove sgml-common --version %{version}-%{release}
+#fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -60,8 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %dir %{_datadir}/sgml
+%dir %{_datadir}/sgml/catalogs
 %{_datadir}/sgml/iso-entities-8879.1986
-%{_datadir}/sgml/sgml-common.cat
-%attr(755,root,root) %{_sbindir}/install-catalog
+%{_datadir}/sgml/catalogs/*
+%attr(755,root,root) %{_sbindir}/*
 %ghost %{_datadir}/sgml/CATALOG
-%attr(755,root,root) %config /etc/profile.d/*
+#%attr(755,root,root) %config /etc/profile.d/*
