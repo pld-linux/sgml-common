@@ -2,7 +2,7 @@ Summary:	Common SGML catalog and DTD files
 Summary(pl):	Opisane w normie ISO 8879/1986 katalogi i DTD SGML-owe
 Name:		sgml-common
 Version:	0.6.3
-Release:	4
+Release:	5
 License:	distributable
 ##Copyright:	(C) International Organization for Standardization 1986
 URL:		http://www.iso.ch/cate/3524030.html
@@ -51,7 +51,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # directory commonly used by docbook-* packages
-install -d $RPM_BUILD_ROOT%{_datadir}/sgml/docbook
+# and the second used by {,x}html-dtd* ones
+install -d $RPM_BUILD_ROOT%{_datadir}/sgml/{docbook,html}
 
 xmlcatalog --noout --create $RPM_BUILD_ROOT%{xml_catalog}
 grep PUBLIC $RPM_BUILD_ROOT%{_datadir}/sgml/xml-iso-entities-8879.1986/catalog|sed 's/^/xmlcatalog --noout --add /;s/PUBLIC/public/;s=$= '$RPM_BUILD_ROOT'%{xml_catalog}=' |sh
@@ -87,7 +88,8 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc doc/HTML/*
-%config %{_sysconfdir}/sgml
+%dir %{_sysconfdir}/sgml
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/sgml/sgml.conf
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/sgml
 %{_mandir}/*/*
