@@ -2,7 +2,7 @@ Summary:	Common SGML catalog and DTD files
 Summary(pl):	Opisane w normie ISO 8879/1986 katalogi i DTD SGMLowe
 Name:		sgml-common
 Version:	0.5
-Release:	9
+Release:	10
 License:	distributable
 ##Copyright:	(C) International Organization for Standardization 1986
 URL:		http://www.iso.ch/cate/3524030.html
@@ -20,10 +20,6 @@ Provides:	sgml-catalog
 Requires:	sed
 Requires:	grep
 Requires:	fileutils
-Conflicts:	docbook-dtd41-sgml < 1.0-13
-Conflicts:	docbook-dtd31-sgml < 1.0-13
-Conflicts:	docbook-dtd30-sgml < 1.0-15
-Conflicts:	docbook-style-dsssl < 1.77-1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
