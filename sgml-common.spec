@@ -34,7 +34,7 @@ plik CATALOG oraz instalator nowych DTD.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/profile.d
-install -d $RPM_BUILD_ROOT{%{_sbindur},%{_datadir}/sgml,share/sgml/iso-entities-8879.1986}
+install -d $RPM_BUILD_ROOT{%{_sbindir},%{_datadir}/sgml/iso-entities-8879.1986}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sbindir}
 
