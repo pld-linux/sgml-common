@@ -9,7 +9,7 @@ URL:		http://www.iso.ch/cate/3524030.html
 Group:		Applications/Publishing/SGML
 Group(de):	Applikationen/Publizieren/SGML
 Group(pl):	Aplikacje/Publikowanie/SGML
-Source0:	%{name}-%{version}.tgz
+Source0:	ftp://ftp.kde.org/pub/kde/devel/docbook/SOURCES/%{name}-%{version}.tgz
 Source1:	%{name}-CHANGES
 Patch0:		%{name}-oldsyntax.patch
 Patch1:		%{name}-quiet.patch
@@ -49,6 +49,8 @@ install config/* $RPM_BUILD_ROOT%{_sysconfdir}/sgml/
 install doc/man/*.8 $RPM_BUILD_ROOT/%{_mandir}/man8/
 install %{SOURCE1} CHANGES
 
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %post
 # Update the centralized catalog
@@ -56,10 +58,6 @@ install %{SOURCE1} CHANGES
 
 %preun
 /usr/bin/install-catalog --remove /etc/sgml/sgml-iso-entities-8879.1986.cat /usr/share/sgml/sgml-iso-entities-8879.1986/catalog > /dev/null
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
