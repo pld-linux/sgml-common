@@ -14,7 +14,7 @@ Copyright:	(C) International Organization for Standardization 1986
 Group:		Applications/Publishing/SGML
 Group(pl):	Aplikacje/Publikowanie/SGML
 BuildArch:	noarch
-provides:	iso-entitles, iso-entities-8879.1986, sgml-catalog
+Provides:	iso-entitles, iso-entities-8879.1986, sgml-catalog
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -64,4 +64,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/sgml/sgml-common.cat
 %attr(755,root,root) %{_sbindir}/install-catalog
 %ghost %{_datadir}/sgml/CATALOG
-%config /etc/profile.d 
+%attr(755,root,root) %config /etc/profile.d/*
