@@ -1,6 +1,6 @@
 diff -Nur --exclude *~ sgml-common-0.5/bin/install-catalog sgml-common-0.5.new/bin/install-catalog
---- sgml-common-0.5/bin/install-catalog	Mon Feb 12 15:43:14 2001
-+++ sgml-common-0.5.new/bin/install-catalog	Mon Feb 12 15:46:26 2001
+--- sgml-common-0.5/bin/install-catalog.in	Mon Feb 12 15:43:14 2001
++++ sgml-common-0.5.new/bin/install-catalog.in	Mon Feb 12 15:46:26 2001
 @@ -133,12 +133,14 @@
  	  echo "Warning: $SGML_ORDINARY is already installed in the centralized catalog $SGML_CENTRALIZED"
  	else
