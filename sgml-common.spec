@@ -60,11 +60,11 @@ touch $RPM_BUILD_ROOT%{_datadir}/sgml/CATALOG
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 %dir %{_datadir}/sgml
 %{_datadir}/sgml/iso-entities-8879.1986
 %{_datadir}/sgml/sgml-common.cat
-%attr(755, root, root) %{_sbindir}/install-catalog
+%attr(755,root,root) %{_sbindir}/install-catalog
 %ghost %{_datadir}/sgml/CATALOG
 %config /etc/profile.d 
 
