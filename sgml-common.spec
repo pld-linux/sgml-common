@@ -50,7 +50,9 @@ touch $RPM_BUILD_ROOT%{_datadir}/sgml/CATALOG
 %{_sbindir}/install-catalog --install sgml-common --version %{version}-%{release}
 
 %preun
-%{_sbindir}/install-catalog --remove sgml-common --version %{version}-%{release}
+if [ "$1" = "0" ]; then
+	%{_sbindir}/install-catalog --remove sgml-common --version %{version}-%{release}
+fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
