@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# very simple script that cats catalogs from separate packages 
+# to system wide CATALOG file
+
+catalogs_dir=/usr/share/sgml/catalogs
+catalog=/usr/share/sgml/CATALOG
+catalog_ext="catalog"
+mv -f ${catalog} ${catalog}.bak
+touch ${catalog}
+
+for plik in ${catalogs_dir}/*.${catalog_ext}; do 
+    echo "-- --"
+    echo "-- $plik BEGIN  --"
+    echo "-- --"
+    cat $plik >>${catalog}
+    echo "-- --"
+    echo "-- $plik END  --"
+    echo "-- --"
+done
