@@ -36,7 +36,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/profile.d
 install -d $RPM_BUILD_ROOT/usr/{sbin,share/sgml,share/sgml/iso-entities-8879.1986,lib}
 
-install %{SOURCE1} $RPM_BUILD_ROOT/usr/sbin
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sbindir}
 
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/profile.d
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/profile.d
@@ -51,10 +51,10 @@ ln -s ../share/sgml
 touch $RPM_BUILD_ROOT%{_datadir}/sgml/CATALOG
 
 %post
-/usr/sbin/install-catalog --install sgml-common --version %{version}-%{release}
+%{_sbindir}/install-catalog --install sgml-common --version %{version}-%{release}
 
 %preun
-/usr/sbin/install-catalog --remove sgml-common --version %{version}-%{release}
+%{_sbindir}/install-catalog --remove sgml-common --version %{version}-%{release}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -64,17 +64,17 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/sgml
 %{_datadir}/sgml/iso-entities-8879.1986
 %{_datadir}/sgml/sgml-common.cat
-%attr(755, root, root) /usr/sbin/install-catalog
+%attr(755, root, root) %{_sbindir}/install-catalog
 %ghost %{_datadir}/sgml/CATALOG
 %config /etc/profile.d 
 
 %changelog
 * Thu Jan 10 1999 Ziemek Borowski <zmb@faq-bot.ziembor.waw.pl> 
 [0.2-1] 
-- install-catalog moved to /usr/sbin 
+- install-catalog moved to %{_sbindir} 
 - added files: /etc/profile/sgml.{sh,csh} 
 - version from 0.0 to 0.2 
-- some changes inside /usr/sbin/install-catalog 
+- some changes inside %{_sbindir}/install-catalog 
 - [TODO] upgrade procedure
 
 * Fri Oct  2 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
