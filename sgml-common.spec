@@ -2,22 +2,23 @@ Summary:	Common SGML catalog and DTD files
 Summary(pl):	Opisane w normie ISO 8879/1986 katalogi i DTD SGMLowe
 Name:		sgml-common
 Version:	0.6.3
-Release:	1
+Release:	2
 License:	distributable
 ##Copyright:	(C) International Organization for Standardization 1986
 URL:		http://www.iso.ch/cate/3524030.html
 Group:		Applications/Publishing/SGML
 Source0:	ftp://ftp.kde.org/pub/kde/devel/docbook/SOURCES/%{name}-%{version}.tgz
 Patch0:		%{name}-chmod.patch
-BuildArch:	noarch
 BuildRequires:	/usr/bin/xmlcatalog
+PreReq:		libxml2
+Requires(post,preun): /usr/bin/xmlcatalog
+Requires:	fileutils
+Requires:	grep
+Requires:	sed
 Provides:	iso-entities
 Provides:	iso-entities-8879.1986
 Provides:	sgml-catalog
-Requires(post,preun): /usr/bin/xmlcatalog
-Requires:	sed
-Requires:	grep
-Requires:	fileutils
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		xml_catalog %{_datadir}/sgml/xml-iso-entities-8879.1986/catalog.xml
