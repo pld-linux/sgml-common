@@ -28,7 +28,7 @@ aktualizowany przy dodawaniu nowych pakietów katalog SGML oraz
 instalator nowych DTD.
 
 %prep
-%setup -q 
+%setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
