@@ -5,7 +5,7 @@
 
 catalogs_dir=/usr/share/sgml/catalogs
 catalog=/usr/share/sgml/CATALOG
-catalog_ext="catalog"
+catalog_ext="cat"
 mv -f ${catalog} ${catalog}.bak
 touch ${catalog}
 
