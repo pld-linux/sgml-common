@@ -52,6 +52,9 @@ touch $RPM_BUILD_ROOT/usr/share/sgml/CATALOG
 %preun
 /usr/bin/install-catalog --remove sgml-common --version %{version}-%{release}
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %files
 %defattr(644, root, root, 755)
 %dir /usr/share/sgml
