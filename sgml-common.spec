@@ -65,31 +65,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/install-catalog
 %ghost %{_datadir}/sgml/CATALOG
 %config /etc/profile.d 
-
-%changelog
-* Thu Jan 10 1999 Ziemek Borowski <zmb@faq-bot.ziembor.waw.pl> 
-[0.2-1] 
-- install-catalog moved to %{_sbindir} 
-- added files: /etc/profile/sgml.{sh,csh} 
-- version from 0.0 to 0.2 
-- some changes inside %{_sbindir}/install-catalog 
-- [TODO] upgrade procedure
-
-* Fri Oct  2 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [0.0-6]
-- changed Buildroot to /tmp/%%{name}-%%{version}-root,
-- added %{_datadir}/sgml/CATALOG to files as %ghost,
-- %postun changed to %preun,
-- simplification in %post and %preun,
-- added full path to install-catalog in %post and %preun,
-- install-catalog is now in separated Source#.
-
-* Mon Sep 07 1998 Ziemek Borowski <ziembor@faq-bot.ziembor.waw.pl>
-  [0.0-5]
-- added pl translation,
-- relocated libraries to %{_datadir},
-- normalized .spec.
-
-* Mon Sep 07 1998 Mark Galassi <rosalia@cygnus.com>
-  [0.0-4] 
-- first release
