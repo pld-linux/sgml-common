@@ -61,18 +61,18 @@ rm -rf $RPM_BUILD_ROOT%{_prefix}/doc
 rm -rf $RPM_BUILD_ROOT
 
 %triggerpostun -- sgml-common < 0.5-9 
-if ! grep -q /etc/sgml/sgml-iso-entities-8879.1986.cat /etc/sgml/catalog ; then
+if ! grep -qs /etc/sgml/sgml-iso-entities-8879.1986.cat /etc/sgml/catalog ; then
 	/usr/bin/install-catalog --add /etc/sgml/sgml-iso-entities-8879.1986.cat /usr/share/sgml/sgml-iso-entities-8879.1986/catalog > /dev/null
 fi 
 
 %post
-if ! grep -q /etc/sgml/sgml-iso-entities-8879.1986.cat /etc/sgml/catalog ; then
+if ! grep -qs /etc/sgml/sgml-iso-entities-8879.1986.cat /etc/sgml/catalog ; then
 	/usr/bin/install-catalog --add /etc/sgml/sgml-iso-entities-8879.1986.cat /usr/share/sgml/sgml-iso-entities-8879.1986/catalog > /dev/null
 fi 
-if ! grep -q /etc/sgml/xml-iso-entities-8879.1986.cat /etc/sgml/catalog ; then
+if ! grep -qs /etc/sgml/xml-iso-entities-8879.1986.cat /etc/sgml/catalog ; then
 	/usr/bin/install-catalog --add /etc/sgml/xml-iso-entities-8879.1986.cat /usr/share/sgml/xml-iso-entities-8879.1986/catalog > /dev/null
 fi
-if ! grep -q %{xml_catalog} /etc/xml/catalog ; then
+if ! grep -qs %{xml_catalog} /etc/xml/catalog ; then
 	/usr/bin/xmlcatalog --noout --add nextCatalog "" %{xml_catalog} /etc/xml/catalog
 fi
 
