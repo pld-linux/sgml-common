@@ -8,6 +8,7 @@ License:	distributable
 URL:		http://www.iso.ch/cate/3524030.html
 Group:		Applications/Publishing/SGML
 Source0:	ftp://ftp.kde.org/pub/kde/devel/docbook/SOURCES/%{name}-%{version}.tgz
+# Source0-md5: 103c9828f24820df86e55e7862e28974
 Patch0:		%{name}-chmod.patch
 BuildRequires:	autoconf
 BuildRequires:	/usr/bin/xmlcatalog
