@@ -1,5 +1,5 @@
 #!/bin/sh
-
+    
 # very simple script that cats catalogs from separate packages 
 # to system wide CATALOG file
 
@@ -8,13 +8,18 @@ catalog=/usr/share/sgml/CATALOG
 catalog_ext="cat"
 mv -f ${catalog} ${catalog}.bak
 touch ${catalog}
-
+    
 for plik in ${catalogs_dir}/*.${catalog_ext}; do 
-    echo "-- --"
-    echo "-- $plik BEGIN  --"
-    echo "-- --"
-    cat $plik >>${catalog}
-    echo "-- --"
-    echo "-- $plik END  --"
-    echo "-- --"
+    ##echo "Adding file $plik to CATALOG" >/dev/stderr
+    if [ -r "$plik" ]; then
+	echo ""                   >>${catalog}
+	echo "-- --"              >>${catalog}
+	echo "-- $plik BEGIN  --" >>${catalog}
+	echo "-- --"              >>${catalog}
+	cat $plik                 >>${catalog}
+	echo "-- --"              >>${catalog}
+	echo "-- $plik END  --"   >>${catalog}
+	echo "-- --"              >>${catalog}
+	echo ""                   >>${catalog}
+    fi
 done
