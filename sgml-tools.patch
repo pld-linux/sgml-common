@@ -1,0 +1,25 @@
+diff -Nur sgml-tools-1.0.7/rtf-fix/rtf2rtf.l sgml-tools-1.0.7.orig/rtf-fix/rtf2rtf.l
+--- sgml-tools-1.0.7/rtf-fix/rtf2rtf.l	Tue Nov 11 21:32:40 1997
++++ sgml-tools-1.0.7.orig/rtf-fix/rtf2rtf.l	Thu Oct  8 18:40:05 1998
+@@ -53,8 +53,8 @@
+ int section_id = 0; /* used for TOC hyperlinks */
+ int in_appendix = 0;
+   
+-FILE *out = stdout;
+-FILE *idx_fp = stdout;
++FILE *out;
++FILE *idx_fp;    
+ 
+ char buf[2048], sectname[256], labeltxt[256];
+ char firstname[256], outname[256];
+@@ -384,7 +384,9 @@
+ main( int argc, char **argv )
+ {
+   int i;
+-
++  out = stdout;
++  idx_fp = stdout;    
++  
+   strcpy( firstname, "RTF" );
+ 
+   for (i = 1; i < argc; i++)
