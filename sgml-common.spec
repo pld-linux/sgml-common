@@ -42,13 +42,13 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/profile.d
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/profile.d
 
 
-install sgml-common/* $RPM_BUILD_ROOT/usr/share/sgml/iso-entities-8879.1986
-install %{SOURCE4} $RPM_BUILD_ROOT/usr/share/sgml/iso-entities-8879.1986
-install %{SOURCE5} $RPM_BUILD_ROOT/usr/share/sgml
+install sgml-common/* $RPM_BUILD_ROOT%{_datadir}/sgml/iso-entities-8879.1986
+install %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/sgml/iso-entities-8879.1986
+install %{SOURCE5} $RPM_BUILD_ROOT%{_datadir}/sgml
 
 cd $RPM_BUILD_ROOT%{_libdir} 
 ln -s ../share/sgml 
-touch $RPM_BUILD_ROOT/usr/share/sgml/CATALOG
+touch $RPM_BUILD_ROOT%{_datadir}/sgml/CATALOG
 
 %post
 /usr/sbin/install-catalog --install sgml-common --version %{version}-%{release}
@@ -61,11 +61,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644, root, root, 755)
-%dir /usr/share/sgml
-/usr/share/sgml/iso-entities-8879.1986
-/usr/share/sgml/sgml-common.cat
+%dir %{_datadir}/sgml
+%{_datadir}/sgml/iso-entities-8879.1986
+%{_datadir}/sgml/sgml-common.cat
 %attr(755, root, root) /usr/sbin/install-catalog
-%ghost /usr/share/sgml/CATALOG
+%ghost %{_datadir}/sgml/CATALOG
 %config /etc/profile.d 
 
 %changelog
@@ -80,7 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 * Fri Oct  2 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.0-6]
 - changed Buildroot to /tmp/%%{name}-%%{version}-root,
-- added /usr/share/sgml/CATALOG to files as %ghost,
+- added %{_datadir}/sgml/CATALOG to files as %ghost,
 - %postun changed to %preun,
 - simplification in %post and %preun,
 - added full path to install-catalog in %post and %preun,
@@ -89,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 * Mon Sep 07 1998 Ziemek Borowski <ziembor@faq-bot.ziembor.waw.pl>
   [0.0-5]
 - added pl translation,
-- relocated libraries to /usr/share,
+- relocated libraries to %{_datadir},
 - normalized .spec.
 
 * Mon Sep 07 1998 Mark Galassi <rosalia@cygnus.com>
