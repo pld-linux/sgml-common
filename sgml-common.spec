@@ -61,15 +61,15 @@ rm -rf $RPM_BUILD_ROOT%{_prefix}/doc
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%triggerpostun -- sgml-common < 0.5-9 
+%triggerpostun -- sgml-common < 0.5-9
 if ! grep -qs /etc/sgml/sgml-iso-entities-8879.1986.cat /etc/sgml/catalog ; then
 	/usr/bin/install-catalog --add /etc/sgml/sgml-iso-entities-8879.1986.cat /usr/share/sgml/sgml-iso-entities-8879.1986/catalog > /dev/null
-fi 
+fi
 
 %post
 if ! grep -qs /etc/sgml/sgml-iso-entities-8879.1986.cat /etc/sgml/catalog ; then
 	/usr/bin/install-catalog --add /etc/sgml/sgml-iso-entities-8879.1986.cat /usr/share/sgml/sgml-iso-entities-8879.1986/catalog > /dev/null
-fi 
+fi
 if ! grep -qs /etc/sgml/xml-iso-entities-8879.1986.cat /etc/sgml/catalog ; then
 	/usr/bin/install-catalog --add /etc/sgml/xml-iso-entities-8879.1986.cat /usr/share/sgml/xml-iso-entities-8879.1986/catalog > /dev/null
 fi
@@ -82,7 +82,7 @@ if [ "$1" = "0" ] ; then
 	/usr/bin/install-catalog --remove /etc/sgml/sgml-iso-entities-8879.1986.cat /usr/share/sgml/sgml-iso-entities-8879.1986/catalog > /dev/null
 	/usr/bin/install-catalog --remove /etc/sgml/xml-iso-entities-8879.1986.cat /usr/share/sgml/xml-iso-entities-8879.1986/catalog > /dev/null
 	/usr/bin/xmlcatalog --noout --del %{xml_catalog} /etc/xml/catalog
-fi 
+fi
 
 %files
 %defattr(644,root,root,755)
