@@ -46,7 +46,7 @@ install sgml-common/* $RPM_BUILD_ROOT/usr/share/sgml/iso-entities-8879.1986
 install %{SOURCE4} $RPM_BUILD_ROOT/usr/share/sgml/iso-entities-8879.1986
 install %{SOURCE5} $RPM_BUILD_ROOT/usr/share/sgml
 
-cd $RPM_BUILD_ROOT/usr/lib 
+cd $RPM_BUILD_ROOT%{_libdir} 
 ln -s ../share/sgml 
 touch $RPM_BUILD_ROOT/usr/share/sgml/CATALOG
 
