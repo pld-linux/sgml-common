@@ -14,7 +14,7 @@ Group:       Applications/Publishing/SGML
 Group(pl):   Aplikacje/Publikowanie/SGML
 BuildArchitectures: noarch
 provides:    iso-entitles, iso-entities-8879.1986, sgml-catalog
-BuildRoot:   /tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 Summary(pl): Opisane w normie ISO 8879/1986 katalogi i DTD SGMLowe
 
 %description
