@@ -7,8 +7,6 @@ License:	Distibutable
 ##Copyright:	(C) International Organization for Standardization 1986
 URL:		http://www.iso.ch/cate/3524030.html
 Group:		Applications/Publishing/SGML
-Group(de):	Applikationen/Publizieren/SGML
-Group(pl):	Aplikacje/Publikowanie/SGML
 Source0:	ftp://ftp.kde.org/pub/kde/devel/docbook/SOURCES/%{name}-%{version}.tgz
 Source1:	%{name}-CHANGES
 Patch0:		%{name}-oldsyntax.patch
