@@ -3,7 +3,7 @@ Summary(pl):	Opisane w normie ISO 8879/1986 katalogi i DTD SGMLowe
 Name:		sgml-common
 Version:	0.5
 Release:	8
-License:	Distibutable
+License:	distributable
 ##Copyright:	(C) International Organization for Standardization 1986
 URL:		http://www.iso.ch/cate/3524030.html
 Group:		Applications/Publishing/SGML
