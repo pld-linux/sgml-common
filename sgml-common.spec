@@ -1,5 +1,5 @@
 Summary:	Common SGML catalog and DTD files
-Summary(pl):	Opisane w normie ISO 8879/1986 katalogi i DTD SGMLowe
+Summary(pl):	Opisane w normie ISO 8879/1986 katalogi i DTD SGML-owe
 Name:		sgml-common
 Version:	0.6.3
 Release:	3
@@ -31,8 +31,8 @@ SGML processing, but shouldn't need to be included in multiple
 packages. It also includes an up-to-date Open Catalog file.
 
 %description -l pl
-sgml-common jest zestawem wspólnych dla wiêkszo¶ci aplikacji SGMLa (bo
-opisanych w normie ISO 8879/1986) encji i DTD. Poza tym zawiera
+sgml-common jest zestawem wspólnych dla wiêkszo¶ci aplikacji SGML-a
+(bo opisanych w normie ISO 8879/1986) encji i DTD. Poza tym zawiera
 aktualizowany przy dodawaniu nowych pakietów katalog SGML oraz
 instalator nowych DTD.
 
@@ -54,7 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/sgml/docbook
 
 xmlcatalog --noout --create $RPM_BUILD_ROOT%{xml_catalog}
-grep PUBLIC $RPM_BUILD_ROOT/%{_datadir}/sgml/xml-iso-entities-8879.1986/catalog|sed 's/^/xmlcatalog --noout --add /;s/PUBLIC/public/;s=$= '$RPM_BUILD_ROOT'/%{xml_catalog}=' |sh
+grep PUBLIC $RPM_BUILD_ROOT%{_datadir}/sgml/xml-iso-entities-8879.1986/catalog|sed 's/^/xmlcatalog --noout --add /;s/PUBLIC/public/;s=$= '$RPM_BUILD_ROOT'%{xml_catalog}=' |sh
 
 rm -rf $RPM_BUILD_ROOT%{_prefix}/doc
 
