@@ -1,21 +1,21 @@
-Summary:     Common SGML catalog and DTD files
-Name:        sgml-common
-Version:     0.2
-Release:     1
-Vendor:      Cygnus Solutions -- UNSUPPORTED
-Source0:     sgml-common.tgz
-Source1:     install-catalog
-Source2:     sgml.sh
-Source3:     sgml.csh
-Source4:     iso-entities.cat
-Source5:     sgml-common.cat
-Copyright:   (C) International Organization for Standardization 1986
-Group:       Applications/Publishing/SGML
-Group(pl):   Aplikacje/Publikowanie/SGML
-BuildArchitectures: noarch
-provides:    iso-entitles, iso-entities-8879.1986, sgml-catalog
+Summary:	Common SGML catalog and DTD files
+Summary(pl):	Opisane w normie ISO 8879/1986 katalogi i DTD SGMLowe
+Name:		sgml-common
+Version:	0.2
+Release:	2
+Vendor:		Cygnus Solutions -- UNSUPPORTED
+Source0:	sgml-common.tgz
+Source1:	install-catalog
+Source2:	sgml.sh
+Source3:	sgml.csh
+Source4:	iso-entities.cat
+Source5:	sgml-common.cat
+Copyright:	(C) International Organization for Standardization 1986
+Group:		Applications/Publishing/SGML
+Group(pl):	Aplikacje/Publikowanie/SGML
+BuildArch:	noarch
+provides:	iso-entitles, iso-entities-8879.1986, sgml-catalog
 BuildRoot:	/tmp/%{name}-%{version}-root
-Summary(pl): Opisane w normie ISO 8879/1986 katalogi i DTD SGMLowe
 
 %description
 sgml-common is a collection of entities and dtds that are useful for
@@ -34,20 +34,16 @@ plik CATALOG oraz instalator nowych DTD.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/profile.d
-install -d $RPM_BUILD_ROOT/usr/{sbin,share/sgml,share/sgml/iso-entities-8879.1986,lib}
+install -d $RPM_BUILD_ROOT{%{_sbindur},%{_datadir}/sgml,share/sgml/iso-entities-8879.1986}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sbindir}
 
-install %{SOURCE2} $RPM_BUILD_ROOT/etc/profile.d
-install %{SOURCE3} $RPM_BUILD_ROOT/etc/profile.d
-
+install %{SOURCE2} %{SOURCE3} $RPM_BUILD_ROOT/etc/profile.d
 
 install sgml-common/* $RPM_BUILD_ROOT%{_datadir}/sgml/iso-entities-8879.1986
 install %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/sgml/iso-entities-8879.1986
 install %{SOURCE5} $RPM_BUILD_ROOT%{_datadir}/sgml
 
-cd $RPM_BUILD_ROOT%{_libdir} 
-ln -s ../share/sgml 
 touch $RPM_BUILD_ROOT%{_datadir}/sgml/CATALOG
 
 %post
