@@ -1,21 +1,21 @@
 Summary:     Common SGML catalog and DTD files
-Summary(pl): Opisane w normie ISO 8879/1986 katalogi i DTD SGMLowe
 Name:        sgml-common
 Version:     0.2
-Release:     1pld
+Release:     1
 Vendor:      Cygnus Solutions -- UNSUPPORTED
 Source0:     sgml-common.tgz
 Source1:     install-catalog
-Source2:	sgml.sh
-Source3:	sgml.csh
-Source4:	iso-entities.cat
-Source5:	sgml-common.cat
+Source2:     sgml.sh
+Source3:     sgml.csh
+Source4:     iso-entities.cat
+Source5:     sgml-common.cat
 Copyright:   (C) International Organization for Standardization 1986
-Group:  Applications/Publishing/SGML
-Group(pl):      Aplikacje/Publikowanie/SGML
+Group:       Applications/Publishing/SGML
+Group(pl):   Aplikacje/Publikowanie/SGML
 BuildArchitectures: noarch
 provides:    iso-entitles, iso-entities-8879.1986, sgml-catalog
 BuildRoot:   /tmp/%{name}-%{version}-root
+Summary(pl): Opisane w normie ISO 8879/1986 katalogi i DTD SGMLowe
 
 %description
 sgml-common is a collection of entities and dtds that are useful for
@@ -69,11 +69,13 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/profile.d 
 
 %changelog
-* Thu Jan 07 1999 Ziemek Borowski <zmb@faq-bot.ziembor.waw.pl> 
-[1.0-1] 
+* Thu Jan 10 1999 Ziemek Borowski <zmb@faq-bot.ziembor.waw.pl> 
+[0.2-1] 
 - install-catalog moved to /usr/sbin 
 - added files: /etc/profile/sgml.{sh,csh} 
 - version from 0.0 to 0.2 
+- some changes inside /usr/sbin/install-catalog 
+- [TODO] upgrade procedure
 
 * Fri Oct  2 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.0-6]
