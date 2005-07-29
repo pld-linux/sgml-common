@@ -11,6 +11,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/devel/docbook/SOURCES/%{name}-%{version}.tgz
 # Source0-md5:	103c9828f24820df86e55e7862e28974
 Patch0:		%{name}-chmod.patch
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libxml2-progs
 PreReq:		libxml2
 Requires(pre,preun): /usr/bin/xmlcatalog
