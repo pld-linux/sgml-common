@@ -13,7 +13,7 @@ Patch0:		%{name}-chmod.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libxml2-progs
-PreReq:		libxml2
+PreReq:		libxml2-progs
 Requires(pre,preun): /usr/bin/xmlcatalog
 Requires:	fileutils
 Requires:	grep
