@@ -13,10 +13,10 @@ Patch0:		%{name}-chmod.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libxml2-progs
-PreReq:		libxml2-progs
 Requires(pre,preun): /usr/bin/xmlcatalog
 Requires:	fileutils
 Requires:	grep
+Requires:	libxml2-progs
 Requires:	sed
 Provides:	iso-entities
 Provides:	iso-entities-8879.1986
@@ -90,7 +90,7 @@ fi
 %defattr(644,root,root,755)
 %doc doc/HTML/*
 %dir %{_sysconfdir}/sgml
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/sgml/sgml.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/sgml/sgml.conf
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/sgml
 %{_mandir}/*/*
