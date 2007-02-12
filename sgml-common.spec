@@ -1,5 +1,5 @@
 Summary:	Common SGML catalog and DTD files
-Summary(pl.UTF-8):   Opisane w normie ISO 8879/1986 katalogi i DTD SGML-owe
+Summary(pl.UTF-8):	Opisane w normie ISO 8879/1986 katalogi i DTD SGML-owe
 Name:		sgml-common
 Version:	0.6.3
 Release:	6
