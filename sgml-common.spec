@@ -1,5 +1,5 @@
 Summary:	Common SGML catalog and DTD files
-Summary(pl):	Opisane w normie ISO 8879/1986 katalogi i DTD SGML-owe
+Summary(pl.UTF-8):   Opisane w normie ISO 8879/1986 katalogi i DTD SGML-owe
 Name:		sgml-common
 Version:	0.6.3
 Release:	6
@@ -31,10 +31,10 @@ sgml-common is a collection of entities and dtds that are useful for
 SGML processing, but shouldn't need to be included in multiple
 packages. It also includes an up-to-date Open Catalog file.
 
-%description -l pl
-sgml-common jest zestawem wspólnych dla wiêkszo¶ci aplikacji SGML-a
+%description -l pl.UTF-8
+sgml-common jest zestawem wspÃ³lnych dla wiÄ™kszoÅ›ci aplikacji SGML-a
 (bo opisanych w normie ISO 8879/1986) encji i DTD. Poza tym zawiera
-aktualizowany przy dodawaniu nowych pakietów katalog SGML oraz
+aktualizowany przy dodawaniu nowych pakietÃ³w katalog SGML oraz
 instalator nowych DTD.
 
 %prep
