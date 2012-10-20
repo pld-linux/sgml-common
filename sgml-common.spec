@@ -2,9 +2,9 @@ Summary:	Common SGML catalog and DTD files
 Summary(pl.UTF-8):	Opisane w normie ISO 8879/1986 katalogi i DTD SGML-owe
 Name:		sgml-common
 Version:	0.6.3
-Release:	7
+Release:	8
+#Copyright:	(C) International Organization for Standardization 1986
 License:	distributable
-##Copyright:	(C) International Organization for Standardization 1986
 URL:		http://www.iso.ch/cate/3524030.html
 Group:		Applications/Publishing/SGML
 Source0:	ftp://ftp.kde.org/pub/kde/devel/docbook/SOURCES/%{name}-%{version}.tgz
@@ -47,7 +47,6 @@ instalator nowych DTD.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -56,7 +55,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/sgml/{docbook,html}
 
 xmlcatalog --noout --create $RPM_BUILD_ROOT%{xml_catalog}
-grep PUBLIC $RPM_BUILD_ROOT%{_datadir}/sgml/xml-iso-entities-8879.1986/catalog|sed 's/^/xmlcatalog --noout --add /;s/PUBLIC/public/;s=$= '$RPM_BUILD_ROOT'%{xml_catalog}=' |sh
+grep PUBLIC $RPM_BUILD_ROOT%{_datadir}/sgml/xml-iso-entities-8879.1986/catalog | \
+	sed 's/^/xmlcatalog --noout --add /;s/PUBLIC/public/;s=$= '$RPM_BUILD_ROOT'%{xml_catalog}=' | sh
 
 rm -rf $RPM_BUILD_ROOT%{_prefix}/doc
 
@@ -83,7 +83,7 @@ fi
 if [ "$1" = "0" ] ; then
 	/usr/bin/install-catalog --remove /etc/sgml/sgml-iso-entities-8879.1986.cat /usr/share/sgml/sgml-iso-entities-8879.1986/catalog > /dev/null
 	/usr/bin/install-catalog --remove /etc/sgml/xml-iso-entities-8879.1986.cat /usr/share/sgml/xml-iso-entities-8879.1986/catalog > /dev/null
-	/usr/bin/xmlcatalog --noout --del %{xml_catalog} /etc/xml/catalog
+	[ ! -x /usr/bin/xmlcatalog ] || /usr/bin/xmlcatalog --noout --del %{xml_catalog} /etc/xml/catalog
 fi
 
 %files
