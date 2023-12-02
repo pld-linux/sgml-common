@@ -1,8 +1,8 @@
-diff -Nur --exclude *~ sgml-common-0.5/bin/install-catalog sgml-common-0.5.new/bin/install-catalog
---- sgml-common-0.5/bin/install-catalog.in	Mon Feb 12 15:43:14 2001
-+++ sgml-common-0.5.new/bin/install-catalog.in	Mon Feb 12 15:46:26 2001
-@@ -133,12 +133,14 @@
- 	  echo "Warning: $SGML_ORDINARY is already installed in the centralized catalog $SGML_CENTRALIZED"
+diff -urNp -x '*.orig' sgml-common-0.6.3.org/bin/install-catalog.in sgml-common-0.6.3/bin/install-catalog.in
+--- sgml-common-0.6.3.org/bin/install-catalog.in	2001-01-12 16:35:39.000000000 +0100
++++ sgml-common-0.6.3/bin/install-catalog.in	2023-12-02 23:50:22.637916811 +0100
+@@ -133,12 +133,14 @@ case $SGML_ACTION in
+ 	  echo "Warning: $SGML_ORDINARY is already installed in the centralized catalog $SGML_CENTRALIZED" >&2
  	else
  	  echo "$SGML_POINTER $SGML_ORDINARY" >> $SGML_CENTRALIZED
 +	  chmod 644 $SGML_CENTRALIZED
@@ -16,15 +16,15 @@ diff -Nur --exclude *~ sgml-common-0.5/bin/install-catalog sgml-common-0.5.new/b
  	fi
  	;;
     removal)
-@@ -147,6 +149,7 @@
+@@ -147,6 +149,7 @@ case $SGML_ACTION in
  	then
            sed -e "\:$SGML_POINTER $SGML_ORDINARY:d" < $SGML_CENTRALIZED > ${SGML_CENTRALIZED}.new
            mv ${SGML_CENTRALIZED}.new $SGML_CENTRALIZED
 +	  chmod 644 $SGML_CENTRALIZED
  	else
- 	  echo "Warning: $SGML_ORDINARY was not found in the centralized catalog $SGML_CENTRALIZED"
+ 	  echo "Warning: $SGML_ORDINARY was not found in the centralized catalog $SGML_CENTRALIZED" >&2
  	fi
-@@ -156,6 +159,7 @@
+@@ -156,6 +159,7 @@ case $SGML_ACTION in
  	  echo "`basename $0`: removal of $SGML_CENTRALIZED from /etc/sgml/catalog"
            sed -e "\:$SGML_POINTER $SGML_CENTRALIZED:d" < /etc/sgml/catalog > /etc/sgml/catalog.new
            mv /etc/sgml/catalog.new /etc/sgml/catalog
